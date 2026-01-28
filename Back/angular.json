@@ -17,6 +17,7 @@
         "build": {
           "builder": "@angular/build:application",
           "options": {
+            "outputPath": "dist/vital-box",
             "browser": "src/main.ts",
             "polyfills": [
               "zone.js"
@@ -61,10 +62,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "p:build:production"
+              "buildTarget": "VitalBox:build:production"
             },
             "development": {
-              "buildTarget": "p:build:development"
+              "buildTarget": "VitalBox:build:development"
             }
           },
           "defaultConfiguration": "development"
