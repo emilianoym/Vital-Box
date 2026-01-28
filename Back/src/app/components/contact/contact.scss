@@ -90,6 +90,13 @@
                     font-size: 1.1rem;
                     color: #333;
                     font-weight: 600;
+                    text-decoration: none;
+                    transition: color 0.3s ease;
+
+                    // Hover effect for links
+                    &[href]:hover {
+                        color: #F26849;
+                    }
                 }
             }
         }
