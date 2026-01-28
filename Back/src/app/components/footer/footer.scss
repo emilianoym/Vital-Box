@@ -1,0 +1,84 @@
+.footer {
+    background-color: #F8F5E9;
+    color: #f4f4f4;
+    padding: 3rem 1rem 1rem;
+    font-family: 'Quicksand', sans-serif;
+
+    .footer-content {
+        max-width: 500px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin-bottom: 2rem;
+
+        .footer-center {
+            text-align: center;
+
+            .footer-logo-img {
+                height: 80px; // Adjust size as needed
+                width: auto;
+                margin-bottom: 1.5rem;
+                display: block;
+            }
+
+            .social-icons {
+                display: flex;
+                gap: 1.5rem;
+                justify-content: center;
+
+                .icon {
+                    color: #F26849; // Brand Orange for icon
+                    padding: 0.5rem;
+                    border-radius: 50%;
+                    text-decoration: none;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    transition: transform 0.3s;
+
+                    // Size of container
+                    width: 80px;
+                    height: 80px;
+                    overflow: hidden; // Needed for drop-shadow trick
+
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: contain;
+                        // The drop-shadow is cast 80px below. The image is moved 80px up.
+                        // Ideally, we see the colored shadow.
+                        filter: drop-shadow(0 80px 0 #F26849);
+                        transform: translateY(-80px);
+                    }
+
+                    &:hover {
+                        transform: translateY(-3px);
+                    }
+                }
+            }
+        }
+    }
+
+    .footer-bottom {
+        text-align: center;
+        border-top: 1px solid #444;
+        padding-top: 1rem;
+
+        p {
+            font-size: 0.8rem;
+            color: #888;
+        }
+    }
+
+    @media (max-width: 768px) {
+        text-align: center;
+
+        .footer-section {
+            .social-icons {
+                justify-content: center;
+            }
+        }
+    }
+}

@@ -1,0 +1,192 @@
+// Variables
+$primary-color: #D9D162; // Verde saludable
+$primary-dark: #388E3C;
+$text-color: #333;
+$white: #ffffff;
+$background-color: #f9f9f9;
+$shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+$transition: 0.3s ease;
+
+:host {
+    display: block;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+}
+
+.navbar {
+    background-color: $white;
+    box-shadow: $shadow;
+    padding: 1rem 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+
+
+    &__container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 4%; // Align with box-lunch-containers padding
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__logo {
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+
+        img {
+            height: 60px; // Ajustado para mejor visibilidad
+            width: auto;
+        }
+    }
+
+    &__toggle {
+        display: none;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 30px;
+        height: 21px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+
+        &-bar {
+            height: 3px;
+            width: 100%;
+            background-color: $text-color;
+            border-radius: 3px;
+            transition: $transition;
+        }
+
+        @media (max-width: 768px) {
+            display: flex;
+            z-index: 1001; // Ensure above the side menu
+        }
+
+        &.active {
+            .navbar__toggle-bar:nth-child(1) {
+                transform: translateY(7px) rotate(45deg);
+            }
+
+            .navbar__toggle-bar:nth-child(2) {
+                opacity: 0;
+            }
+
+            .navbar__toggle-bar:nth-child(3) {
+                transform: translateY(-7px) rotate(-45deg);
+            }
+        }
+    }
+
+    &__menu {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+
+        @media (max-width: 768px) {
+            position: fixed; // Fixed to cover screen (partially now)
+            top: 0;
+            left: 0; // Align left (cover full width)
+            width: 100%; // Full width
+            height: auto; // Auto height to fit content ONLY
+            min-height: 250px; // Minimum height for substance
+            background-color: $white;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start; // Align items to top
+            padding: 5rem 2rem 5rem; // Symmetrical top/bottom padding
+            gap: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15); // Strong shadow for dropdown feel
+            border-bottom-left-radius: 20px; // Nice rounded corners at bottom
+            border-bottom-right-radius: 20px;
+            transform: translateY(-100%); // Start off-screen TOP
+            opacity: 1;
+            visibility: visible;
+            transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1); // Smooth drop ease
+            z-index: 999;
+
+            &--active {
+                transform: translateY(0); // Slide down
+            }
+        }
+    }
+
+    &__list {
+        display: flex;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        gap: 2rem;
+
+        @media (max-width: 768px) {
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+        }
+    }
+
+    &__link {
+        text-decoration: none;
+        color: $text-color;
+        font-weight: 500;
+        font-size: 1rem;
+        transition: $transition;
+
+        @media (max-width: 768px) {
+            font-size: 1.5rem; // Much larger font on mobile
+            text-align: center; // Ensure symmetry
+            display: block; // Occupy full width if needed for alignment
+            width: 100%;
+        }
+
+
+        &:hover,
+        &.active {
+            color: $primary-color;
+        }
+    }
+
+    &__cta {
+        @media (max-width: 768px) {
+            margin-top: 1rem;
+            width: 100%; // Make full width
+            display: flex;
+            justify-content: center;
+
+            .btn {
+                width: 80%; // Make button wider
+                padding: 1rem 2rem; // Increase padding
+                font-size: 1.2rem; // Increase text size
+                text-align: center;
+            }
+        }
+    }
+
+
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.6rem 1.5rem;
+    border-radius: 15px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: $transition;
+    cursor: pointer;
+
+    &--primary {
+        background-color: #F26849; // Black background
+        color: white;
+    }
+
+    &:hover {
+        background-color: #dd3c18;
+    }
+}

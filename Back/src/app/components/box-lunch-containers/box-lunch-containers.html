@@ -1,0 +1,23 @@
+<div class="packages-container" id="paquetes">
+    <div class="section-header">
+        <h3 class="section-subtitle">Nuestros Paquetes</h3>
+    </div>
+    <div class="packages-grid">
+        <div class="package-card" *ngFor="let pkg of packages" (click)="openInfo(pkg)">
+            <div class="package-image-container">
+                <img [src]="pkg.image" [alt]="pkg.title" class="package-image">
+            </div>
+            <div class="package-content">
+                <h3 class="package-title">{{ pkg.title }}</h3>
+                <button class="btn-info">
+                    Ver Detalles
+                </button>
+            </div>
+            <div class="package-details" [class.expanded]="pkg.expanded">
+                <ul class="details-list">
+                    <li *ngFor="let item of pkg.details">{{ item }}</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

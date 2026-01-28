@@ -1,0 +1,167 @@
+.carousel {
+    position: relative;
+    width: 100%;
+    height: 600px;
+    /* Adjust height as needed */
+    overflow: hidden;
+    background-color: #f0f0f0;
+
+    @media (max-width: 768px) {
+        height: 50vh; // Use viewport height for better mobile experience
+        min-height: 300px;
+    }
+
+    &__inner {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        transition: transform 0.5s ease-in-out;
+    }
+
+    &__item {
+        min-width: 100%;
+        height: 100%;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+    }
+
+    &__image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    &__placeholder {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: radial-gradient(circle, #e0e0e0 0%, #cfcfcf 100%);
+        text-align: center;
+        font-weight: bold;
+        font-size: 1.2rem;
+    }
+
+    &__caption {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        padding: 3rem 1.5rem 2rem; // Reduced padding for mobile
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+        color: white;
+        text-align: center;
+
+        @media (min-width: 768px) {
+            text-align: left;
+            padding: 4rem 5rem 3rem;
+        }
+
+        @media (max-width: 600px) {
+            padding-bottom: 3.5rem; // Extra space for indicators on very small screens if needed
+
+            .carousel__title {
+                font-size: 1.5rem; // Smaller title
+            }
+
+            .carousel__description {
+                font-size: 0.9rem; // Smaller desc
+                display: -webkit-box;
+                -webkit-line-clamp: 2; // Limit description lines
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+            }
+        }
+    }
+
+    &__title {
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+        font-weight: 700;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    &__description {
+        font-size: 1.1rem;
+        max-width: 600px;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    }
+
+    &__control {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        height: 100%;
+        width: 3%; // Area clickable
+        min-width: 50px;
+        background: transparent;
+        color: white;
+        border: none;
+        padding: 0;
+        cursor: pointer;
+        font-size: 2rem;
+        z-index: 10;
+        transition: background 0.3s, color 0.3s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0.7;
+
+        &:hover {
+            background: rgba(0, 0, 0, 0.063); // Subtle dark overlay on hover
+            opacity: 1;
+        }
+
+        &--prev {
+            left: 0;
+            background: linear-gradient(to right, rgba(0, 0, 0, 0.3), transparent); // Subtle gradient for visibility
+            justify-content: flex-start; // Align arrow slightly to edge
+            padding-left: 1rem;
+
+            &:hover {
+                background: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.1));
+            }
+        }
+
+        &--next {
+            right: 0;
+            background: linear-gradient(to left, rgba(0, 0, 0, 0.3), transparent);
+            justify-content: flex-end; // Align arrow slightly to edge
+            padding-right: 1rem;
+
+            &:hover {
+                background: linear-gradient(to left, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.1));
+            }
+        }
+    }
+
+    &__indicators {
+        position: absolute;
+        bottom: 1.5rem;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 0.8rem;
+        z-index: 10;
+    }
+
+    &__indicator {
+        width: 12px;
+        height: 12px;
+        background-color: rgba(255, 255, 255, 0.5);
+        border-radius: 50%;
+        cursor: pointer;
+        transition: all 0.3s;
+        border: 2px solid transparent;
+
+        &.active,
+        &:hover {
+            background-color: white;
+            transform: scale(1.2);
+        }
+    }
+}

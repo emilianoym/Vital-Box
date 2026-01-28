@@ -1,0 +1,76 @@
+.hero {
+    height: 70vh;
+    min-height: 500px;
+    background-image: url('/assets/boxlunch.png'); // Using correct asset
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: 86px; // Offset for fixed navbar
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.4); // Overlay for text readability
+    }
+
+    &__overlay {
+        position: relative;
+        z-index: 1;
+        color: white;
+        padding: 0 1rem;
+    }
+
+    &__logo {
+        width: 100%;
+        max-width: 300px;
+        height: auto;
+        animation: fadeInDown 1s ease-out;
+    }
+
+    &__subtitle {
+        font-size: 1.5rem;
+        font-weight: 300;
+        margin-bottom: 2rem;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        margin-top: -2rem;
+    }
+
+    &__cta {
+        display: inline-block;
+        padding: 1rem 2.5rem;
+        background-color: #D9D162; // Brand primary
+        color: #333;
+        font-weight: 700;
+        text-decoration: none;
+        border-radius: 50px;
+        transition: transform 0.3s, background 0.3s;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+
+        &:hover {
+            transform: translateY(-3px);
+            background-color: #f0e98d;
+        }
+    }
+
+    @media (max-width: 768px) {
+        height: 60vh;
+        min-height: 400px;
+
+        &__title {
+            font-size: 3rem;
+        }
+
+        &__subtitle {
+            font-size: 1.2rem;
+        }
+    }
+}

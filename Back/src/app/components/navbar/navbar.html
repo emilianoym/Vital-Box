@@ -1,0 +1,35 @@
+<nav class="navbar quicksand">
+    <div class="navbar__container">
+        <!-- Logo -->
+        <a routerLink="/" class="navbar__logo">
+            <img src="/assets/vitalboxlogo.png" alt="Vital Box">
+        </a>
+
+        <!-- Mobile Menu Button -->
+        <button class="navbar__toggle" [class.active]="isMenuOpen" (click)="toggleMenu()"
+            [attr.aria-label]="'Toggle navigation'">
+            <span class="navbar__toggle-bar"></span>
+            <span class="navbar__toggle-bar"></span>
+            <span class="navbar__toggle-bar"></span>
+        </button>
+
+        <!-- Navigation Links -->
+        <div class="navbar__menu" [ngClass]="{'navbar__menu--active': isMenuOpen}">
+            <ul class="navbar__list">
+                <li class="navbar__item">
+                    <a routerLink="/" fragment="paquetes" class="navbar__link" (click)="isMenuOpen = false">Paquetes</a>
+                </li>
+                <li class="navbar__item">
+                    <a routerLink="/" fragment="nosotros" class="navbar__link" (click)="isMenuOpen = false">Nosotros</a>
+                </li>
+            </ul>
+
+            <!-- CTA Button -->
+            <div class="navbar__cta">
+                <a routerLink="/" fragment="contacto" class="btn btn--primary" (click)="isMenuOpen = false">Contacto</a>
+            </div>
+
+
+        </div>
+    </div>
+</nav>
