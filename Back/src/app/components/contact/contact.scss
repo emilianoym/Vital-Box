@@ -90,13 +90,37 @@
                     font-size: 1.1rem;
                     color: #333;
                     font-weight: 600;
-                    text-decoration: none;
-                    transition: color 0.3s ease;
+                }
+            }
+        }
 
-                    // Hover effect for links
-                    &[href]:hover {
-                        color: #F26849;
-                    }
+        .cta-container {
+            width: 100%;
+            display: flex;
+            justify-content: center; // Center horizontally
+            margin-top: 2rem;
+
+            .btn-whatsapp {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                gap: 0.5rem;
+                background-color: #F26849;
+                color: #FFFFFF;
+                padding: 1rem 3rem;
+                border-radius: 50px;
+                font-size: 1.2rem;
+                font-weight: 700;
+                text-decoration: none;
+                transition: all 0.3s ease;
+                box-shadow: 0 5px 15px rgba(242, 104, 73, 0.3);
+                border: 2px solid #F26849;
+
+                &:hover {
+                    background-color: #d65a3f;
+                    border-color: #d65a3f;
+                    transform: translateY(-3px);
+                    box-shadow: 0 8px 25px rgba(242, 104, 73, 0.4);
                 }
             }
         }
